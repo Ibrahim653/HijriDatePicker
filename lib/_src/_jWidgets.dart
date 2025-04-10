@@ -280,18 +280,23 @@ class JGlobalDatePicker extends StatelessWidget {
                                               fDate: dateTime.dateTime))),
                             ),
                           if (pickerType == PickerType.JNormal)
-                            CalendarDatePicker(
-                              initialDate: checkDate(selectedDate),
-                              firstDate: checkDate(startDate),
-                              lastDate: checkDate(endDate),
-                              initialCalendarMode:
-                                  pickerMode ?? DatePickerMode.day,
-                              selectableDayPredicate: selectableDayPredicate,
-                              onDateChanged: onChange != null
-                                  ? (dateTime) => onChange!(JPickerValue.value(
-                                      JDateModel(dateTime: dateTime)))
-                                  : (dateTime) => selected = JPickerValue.value(
-                                      JDateModel(dateTime: dateTime)),
+                            Material(
+                              type: MaterialType.transparency,
+                              child: CalendarDatePicker(
+                                initialDate: checkDate(selectedDate),
+                                firstDate: checkDate(startDate),
+                                lastDate: checkDate(endDate),
+                                initialCalendarMode:
+                                    pickerMode ?? DatePickerMode.day,
+                                selectableDayPredicate: selectableDayPredicate,
+                                onDateChanged: onChange != null
+                                    ? (dateTime) => onChange!(
+                                        JPickerValue.value(
+                                            JDateModel(dateTime: dateTime)))
+                                    : (dateTime) => selected =
+                                        JPickerValue.value(
+                                            JDateModel(dateTime: dateTime)),
+                              ),
                             ),
                         ],
                       ),
